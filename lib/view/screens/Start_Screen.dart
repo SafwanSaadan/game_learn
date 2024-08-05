@@ -19,10 +19,10 @@ class StartScreen extends StatelessWidget {
         textDirection: TextDirection.rtl,
         child: Scaffold(
           body: Container(
-            padding: const EdgeInsets.only(top: 70),
+            padding: const EdgeInsets.only(top: 20, bottom: 30),
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(bgList[controller.selectedIndex]),
+                image: NetworkImage(bgList[controller.selectedIndex]),
                 fit: BoxFit.fill,
               ),
             ),
@@ -33,7 +33,9 @@ class StartScreen extends StatelessWidget {
                   onTap: () {
                     i == 0
                         ? Get.toNamed(AppRoutes.search)
-                        : Get.toNamed(AppRoutes.dragDropGame);
+                        : i == 1
+                            ? Get.toNamed(AppRoutes.dragDropGame)
+                            : Get.toNamed(AppRoutes.calcGame);
                   },
                   child: Container(
                     margin: const EdgeInsets.all(Constants.margin),
@@ -69,7 +71,7 @@ class StartScreen extends StatelessWidget {
                                   padding: const EdgeInsets.all(5),
                                   child: CircleAvatar(
                                     radius: 40,
-                                    backgroundImage: AssetImage(
+                                    backgroundImage: NetworkImage(
                                       homeModel[i].image!,
                                     ),
                                   ),

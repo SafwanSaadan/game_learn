@@ -78,76 +78,70 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text(
-              'صفحة البحث',
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-            centerTitle: true,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'صفحة البحث',
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
-          body: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(bgList[controller1.selectedIndex]),
-                fit: BoxFit.fill,
-              ),
+          centerTitle: true,
+        ),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(bgList[controller1.selectedIndex]),
+              fit: BoxFit.fill,
             ),
-            child: _isLoading
-                ? const Center(
-                    child:
-                        CircularProgressIndicator()) // Show loading indicator
-                : Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextField(
-                          controller: _searchController,
-                          onChanged: _search,
-                          decoration: InputDecoration(
-                            labelText: 'بحث',
-                            prefixIcon: const Icon(Icons.search),
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                  _isListening ? Icons.mic : Icons.mic_none),
-                              onPressed: _isListening
-                                  ? _stopListening
-                                  : _startListening,
-                            ),
+          ),
+          child: _isLoading
+              ? const Center(
+                  child: CircularProgressIndicator()) // Show loading indicator
+              : Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextField(
+                        controller: _searchController,
+                        onChanged: _search,
+                        decoration: InputDecoration(
+                          labelText: 'بحث',
+                          prefixIcon: const Icon(Icons.search),
+                          suffixIcon: IconButton(
+                            icon:
+                                Icon(_isListening ? Icons.mic : Icons.mic_none),
+                            onPressed:
+                                _isListening ? _stopListening : _startListening,
                           ),
                         ),
                       ),
-                      CustomSearchResults(
-                          searchResults: _searchResults,
-                          flutterTts: _flutterTts),
-                      // Expanded(
-                      //   child: ListView.builder(
-                      //     itemCount: _searchResults.length,
-                      //     itemBuilder: (context, index) {
-                      //       var result = _searchResults[index];
-                      //       return Container(
-                      //         padding: const EdgeInsets.only(bottom: 16),
-                      //         child: ListTile(
-                      //           leading: Image.asset(result['image']),
-                      //           title: Text(result['title']),
-                      //           subtitle: Image.asset(result['imageSign']),
-                      //           trailing: IconButton(
-                      //             icon: const Icon(Icons.play_arrow),
-                      //             onPressed: () {
-                      //               _flutterTts.setLanguage('AR');
-                      //               _flutterTts.speak(result['title']);
-                      //             },
-                      //           ),
-                      //         ),
-                      //       );
-                      //     },
-                      //   ),
-                      // ),
-                    ],
-                  ),
-          ),
+                    ),
+                    CustomSearchResults(
+                        searchResults: _searchResults, flutterTts: _flutterTts),
+                    // Expanded(
+                    //   child: ListView.builder(
+                    //     itemCount: _searchResults.length,
+                    //     itemBuilder: (context, index) {
+                    //       var result = _searchResults[index];
+                    //       return Container(
+                    //         padding: const EdgeInsets.only(bottom: 16),
+                    //         child: ListTile(
+                    //           leading: Image.asset(result['image']),
+                    //           title: Text(result['title']),
+                    //           subtitle: Image.asset(result['imageSign']),
+                    //           trailing: IconButton(
+                    //             icon: const Icon(Icons.play_arrow),
+                    //             onPressed: () {
+                    //               _flutterTts.setLanguage('AR');
+                    //               _flutterTts.speak(result['title']);
+                    //             },
+                    //           ),
+                    //         ),
+                    //       );
+                    //     },
+                    //   ),
+                    // ),
+                  ],
+                ),
         ),
       ),
     );

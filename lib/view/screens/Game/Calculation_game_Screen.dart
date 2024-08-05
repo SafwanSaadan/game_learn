@@ -7,6 +7,8 @@ import 'package:game_learn/core/constant/AppColor.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/DragDropController.dart';
+import '../../../controller/FloatingController.dart';
+import '../../../data/datasource/bg_data.dart';
 import '../../widget/Game/ButtonCalculationGame.dart';
 import '../../widget/ResultMessage.dart';
 
@@ -20,6 +22,8 @@ class CalculationGameScreen extends StatefulWidget {
 class _CalculationGameScreenState extends State<CalculationGameScreen> {
   final DragDropController controller =
       Get.put(DragDropController(), permanent: true);
+  final FloatingController controller1 =
+      Get.put(FloatingController(), permanent: true);
 
   List<String> numberPad = [
     '7',
@@ -176,71 +180,92 @@ class _CalculationGameScreenState extends State<CalculationGameScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColor.blue2,
-      body: Column(children: [
-        // level progrss, player needs 5 correct Answer
-        // Container(
-        //   height: 160,
-        //   color: AppColor.orange,
-        // ),
-
-        // Question
-        Expanded(
-          flex: 2,
-          child: Container(
-            child: Center(
-              child:
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                // Question
-                Center(
-                  child: Text(
-                    '$numberA ${opretor[controller.opretorIndex.value]} $numberB = ',
-                    style: const TextStyle(fontSize: 40, color: AppColor.white),
-                  ),
-                ),
-
-                // Answer Box
-                Container(
-                  height: 60,
-                  width: 120,
-                  decoration: BoxDecoration(
-                    color: AppColor.blue,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: Center(
-                    child: Text(
-                      controller.userAnswer.value,
-                      style:
-                          const TextStyle(fontSize: 40, color: AppColor.white),
-                    ),
-                  ),
-                ),
-              ]),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'لعبة الحساب',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+        ),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(bgList[controller1.selectedIndex]),
+              fit: BoxFit.fill,
             ),
           ),
-        ),
+          child: Column(children: [
+            // level progrss, player needs 5 correct Answer
+            // Container(
+            //   height: 160,
+            //   color: AppColor.orange,
+            // ),
 
-        // number pad
-        Expanded(
-            flex: 5,
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: GridView.builder(
-                  itemCount: numberPad.length,
-                  physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4),
-                  itemBuilder: (context, index) {
-                    return ButtonCalculationGame(
-                      child: numberPad[index],
-                      onTap: () {
-                        buttonTapped(numberPad[index]);
-                      },
-                    );
-                  }),
-            )),
-      ]),
+            // Question
+            Expanded(
+              flex: 3,
+              child: Container(
+                child: Center(
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // Question
+                        Center(
+                          child: Text(
+                            '$numberA ${opretor[controller.opretorIndex.value]} $numberB = ',
+                            style: const TextStyle(
+                                fontSize: 40, color: AppColor.white),
+                          ),
+                        ),
+
+                        // Answer Box
+                        Container(
+                          height: 60,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            color: AppColor.blue,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Center(
+                            child: Text(
+                              controller.userAnswer.value,
+                              style: const TextStyle(
+                                  fontSize: 40, color: AppColor.white),
+                            ),
+                          ),
+                        ),
+                      ]),
+                ),
+              ),
+            ),
+
+            // number pad
+            Expanded(
+                flex: 11,
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: GridView.builder(
+                      itemCount: numberPad.length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 4),
+                      itemBuilder: (context, index) {
+                        return ButtonCalculationGame(
+                          child: numberPad[index],
+                          onTap: () {
+                            buttonTapped(numberPad[index]);
+                          },
+                        );
+                      }),
+                )),
+          ]),
+        ),
+      ),
     );
   }
 }

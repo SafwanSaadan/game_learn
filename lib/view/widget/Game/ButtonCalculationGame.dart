@@ -36,9 +36,6 @@ class _ButtonCalculationGameState extends State<ButtonCalculationGame> {
       child: GestureDetector(
         onTap: () {
           widget.onTap();
-          // print(widget.child);
-          // controller.userAnswer.value == widget.child;
-          // controller.update();
         },
         child: Container(
           decoration: BoxDecoration(

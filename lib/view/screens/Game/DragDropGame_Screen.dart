@@ -65,11 +65,12 @@ class _DragDropGameState extends State<DragDropGameScreen> {
                 )),
           ),
           centerTitle: true,
+          backgroundColor: Colors.transparent,
         ),
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(bgList[controller1.selectedIndex]),
+              image: NetworkImage(bgList[controller1.selectedIndex]),
               fit: BoxFit.fill,
             ),
           ),

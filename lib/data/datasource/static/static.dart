@@ -12,4 +12,8 @@ List<HomeModel> homeModel = [
       title: ConstText.homeModelTitle2,
       body: ConstText.homeModelBody2,
       image: ImagesPath.homeModelImage2),
+  HomeModel(
+      title: ConstText.homeModelTitle3,
+      body: ConstText.homeModelBody3,
+      image: ImagesPath.homeModelImage2),
 ];

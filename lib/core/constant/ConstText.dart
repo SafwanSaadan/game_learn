@@ -8,8 +8,11 @@ class ConstText {
 
   static const String homeModelTitle1 = "صفحة البحث";
   static const String homeModelTitle2 = "لعبة السحب والإفلات";
+  static const String homeModelTitle3 = "لعبة الحساب";
   static const String homeModelBody1 =
       "تستطيع من خلالها البحث بالنص او الصوت فتظهر لك الكلمات مع الاشارات التوضيحية لها والصوت ايضاً";
   static const String homeModelBody2 =
       "لعبة بسيطة من خلالها تتعلم الكلمات والإشارات التي تدل عليها";
+  static const String homeModelBody3 =
+      "اللعبة تبدأ على مراحل تبدأ من 3 ارقام الي هن 0 و 1 و 2 وبعدها في المراحل الأولى يزداد رقم كل 5 إجابات صحيحة يعني تزداد الصعوبةوكلما تقدمنا في المرحل يبقى يحتاج يجاوب إجابات صحيحة أكثر لحتى ينتقل الى مرحلة جديدة ويظهر رقم جديد";
 }
