@@ -27,9 +27,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/constant/AppThemeData.dart';
 import 'routes.dart';
-import 'view/screens/Game/DragDropGame_Screen.dart';
-import 'view/screens/Search_Screen.dart';
-import 'view/screens/Start_Screen.dart';
+import 'view/screens/Game/Calculation_game_Screen.dart';
 
 late final SharedPreferences? sharedPref;
 
@@ -53,7 +51,7 @@ class MyApp extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: StartScreen(),
+        home: const CalculationGameScreen(),
         // initialRoute: AppRoutes.onBoarding,
         theme: AppThemeData(),
         getPages: getPages,

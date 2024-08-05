@@ -10,6 +10,11 @@ class DragDropController extends GetxController {
   var gameOver = false.obs;
   late List<DragDropModel> items;
   late List<DragDropModel> items2;
+  var userScore = 1.obs;
+  var userLevel = 1.obs;
+  var opretorIndex = 0.obs;
+  var validation = false.obs;
+  var userAnswer = ''.obs;
 
   scorePls() {
     score += 10;
