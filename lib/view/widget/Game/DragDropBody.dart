@@ -69,7 +69,7 @@ class _DragDropBodyState extends State<DragDropBody> {
               )
               .toList(),
         ),
-        const Spacer(flex: 2),
+        const Spacer(flex: 4),
         Column(
           children: controller.items2.map((item) {
             return DragTarget<DragDropModel>(
@@ -115,8 +115,8 @@ class _DragDropBodyState extends State<DragDropBody> {
                     borderRadius: BorderRadius.circular(8),
                     color: item.accepting ? AppColor.blue1 : AppColor.blue),
                 alignment: Alignment.center,
-                height: MediaQuery.of(context).size.width / 6,
-                width: MediaQuery.of(context).size.width / 4,
+                height: MediaQuery.of(context).size.width / 5.5,
+                width: MediaQuery.of(context).size.width / 4.5,
                 margin: const EdgeInsets.all(8),
                 child: Text(
                   '${item.name}',
@@ -126,6 +126,7 @@ class _DragDropBodyState extends State<DragDropBody> {
             );
           }).toList(),
         ),
+        const Spacer(),
       ],
     );
   }
