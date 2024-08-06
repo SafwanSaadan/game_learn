@@ -21,6 +21,7 @@ class _CustomSearchResultsState extends State<CustomSearchResults>
   @override
   void initState() {
     super.initState();
+    _flutterTts = FlutterTts();
     gifController = GifController(vsync: this);
   }
 
