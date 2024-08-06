@@ -51,17 +51,17 @@ class _DragDropBodyState extends State<DragDropBody> {
                     data: item,
                     childWhenDragging: CircleAvatar(
                       backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-                      backgroundImage: NetworkImage(item.image),
+                      backgroundImage: AssetImage(item.image),
                       radius: 55,
                     ),
                     feedback: CircleAvatar(
                       backgroundColor: Colors.white,
-                      backgroundImage: NetworkImage(item.image),
+                      backgroundImage: AssetImage(item.image),
                       radius: 30,
                     ),
                     child: CircleAvatar(
                       backgroundColor: Colors.white,
-                      backgroundImage: NetworkImage(item.image),
+                      backgroundImage: AssetImage(item.image),
                       radius: 45,
                     ),
                   ),

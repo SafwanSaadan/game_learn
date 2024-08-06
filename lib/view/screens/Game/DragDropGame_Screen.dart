@@ -70,7 +70,7 @@ class _DragDropGameState extends State<DragDropGameScreen> {
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(bgList[controller1.selectedIndex]),
+              image: AssetImage(bgList[controller1.selectedIndex]),
               fit: BoxFit.fill,
             ),
           ),

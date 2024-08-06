@@ -50,30 +50,25 @@ class _ResultMessageState extends State<ResultMessage> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: Container(
-        height: 200,
-        color: AppColor.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
-              widget.message,
-              style: TextStyle(fontSize: 18.0, color: widget.messageColor),
-            ),
-            GestureDetector(
-              onTap: widget.onTap,
-              child: Container(
-                  padding: const EdgeInsets.all(4),
-                  decoration: BoxDecoration(
-                    color: AppColor.blue,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Icon(
-                    widget.icon,
-                    color: widget.iconColor,
-                  )),
-            ),
-          ],
+      content: GestureDetector(
+        onTap: widget.onTap,
+        child: Container(
+          height: 150,
+          color: AppColor.white,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                widget.message,
+                style: TextStyle(fontSize: 20.0, color: widget.messageColor),
+              ),
+              Icon(
+                widget.icon,
+                color: widget.iconColor,
+                size: 70,
+              ),
+            ],
+          ),
         ),
       ),
     );

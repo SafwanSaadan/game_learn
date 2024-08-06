@@ -22,7 +22,7 @@ class StartScreen extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20, bottom: 30),
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(bgList[controller.selectedIndex]),
+                image: AssetImage(bgList[controller.selectedIndex]),
                 fit: BoxFit.fill,
               ),
             ),
@@ -71,7 +71,7 @@ class StartScreen extends StatelessWidget {
                                   padding: const EdgeInsets.all(5),
                                   child: CircleAvatar(
                                     radius: 40,
-                                    backgroundImage: NetworkImage(
+                                    backgroundImage: AssetImage(
                                       homeModel[i].image!,
                                     ),
                                   ),

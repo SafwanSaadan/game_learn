@@ -89,7 +89,7 @@ class _SearchScreenState extends State<SearchScreen> {
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(bgList[controller1.selectedIndex]),
+              image: AssetImage(bgList[controller1.selectedIndex]),
               fit: BoxFit.fill,
             ),
           ),
@@ -117,29 +117,6 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                     CustomSearchResults(
                         searchResults: _searchResults, flutterTts: _flutterTts),
-                    // Expanded(
-                    //   child: ListView.builder(
-                    //     itemCount: _searchResults.length,
-                    //     itemBuilder: (context, index) {
-                    //       var result = _searchResults[index];
-                    //       return Container(
-                    //         padding: const EdgeInsets.only(bottom: 16),
-                    //         child: ListTile(
-                    //           leading: Image.asset(result['image']),
-                    //           title: Text(result['title']),
-                    //           subtitle: Image.asset(result['imageSign']),
-                    //           trailing: IconButton(
-                    //             icon: const Icon(Icons.play_arrow),
-                    //             onPressed: () {
-                    //               _flutterTts.setLanguage('AR');
-                    //               _flutterTts.speak(result['title']);
-                    //             },
-                    //           ),
-                    //         ),
-                    //       );
-                    //     },
-                    //   ),
-                    // ),
                   ],
                 ),
         ),

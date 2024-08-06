@@ -94,11 +94,12 @@ class _CalculationGameScreenState extends State<CalculationGameScreen> {
     if (controller.validation.value) {
       showDialog(
           context: context,
+          barrierDismissible: false,
           builder: (context) {
             return ResultMessage(
               message: "إجابة صحيحة",
               messageColor: AppColor.green,
-              icon: Icons.arrow_forward,
+              icon: Icons.check,
               iconColor: AppColor.green,
               onTap: goToNextQutsion,
             );
@@ -106,11 +107,12 @@ class _CalculationGameScreenState extends State<CalculationGameScreen> {
     } else {
       showDialog(
           context: context,
+          barrierDismissible: false,
           builder: (context) {
             return ResultMessage(
               message: "إجابة خاطئة",
               messageColor: AppColor.red,
-              icon: Icons.arrow_left,
+              icon: Icons.close ,
               iconColor: AppColor.red,
               onTap: goToBackQutsion,
             );
@@ -194,7 +196,7 @@ class _CalculationGameScreenState extends State<CalculationGameScreen> {
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(bgList[controller1.selectedIndex]),
+              image: AssetImage(bgList[controller1.selectedIndex]),
               fit: BoxFit.fill,
             ),
           ),

@@ -59,7 +59,7 @@ class _CustomSearchResultsState extends State<CustomSearchResults>
                           child: Gif(
                             controller: gifController,
                             autostart: Autostart.loop,
-                            image: NetworkImage(result['imageSign']),
+                            image: AssetImage(result['imageSign']),
                             fit: BoxFit.scaleDown,
                           ),
                         ),
@@ -68,7 +68,7 @@ class _CustomSearchResultsState extends State<CustomSearchResults>
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Image.network(result['image']),
+                                Image.asset(result['image']),
                                 Text(result['title']),
                               ]),
                         ),
