@@ -1,4 +1,6 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, must_be_immutable
+
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,11 +12,9 @@ import '../ResultMessage.dart';
 class MemGameGrideView extends StatefulWidget {
   final List<dynamic> jsonData;
   final List<dynamic> jsonData1;
-  int rendomIndex;
-  MemGameGrideView(
+  const MemGameGrideView(
       {required this.jsonData,
       required this.jsonData1,
-      required this.rendomIndex,
       super.key});
 
   @override
@@ -22,8 +22,12 @@ class MemGameGrideView extends StatefulWidget {
 }
 
 class _MemGameGrideViewState extends State<MemGameGrideView> {
-    final MemoryGameController controller =
+  final MemoryGameController controller =
       Get.put(MemoryGameController(), permanent: true);
+
+  // توليد قيم عشوائية للمتغيرات
+  Random rendomNumber = Random();
+  
   // دالة التحقق من القيم المدخله
   void chackAnswer(bool answer) {
     if (answer) {
@@ -58,7 +62,7 @@ class _MemGameGrideViewState extends State<MemGameGrideView> {
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
       padding: const EdgeInsets.all(16),
-      margin: const EdgeInsets.only(top: 10, bottom: 10),
+      margin: const EdgeInsets.only(top: 5, bottom: 5),
       height: screenWidth,
       width: screenWidth,
       child: GridView.builder(
@@ -70,13 +74,16 @@ class _MemGameGrideViewState extends State<MemGameGrideView> {
             return GestureDetector(
               onTap: () {
                 setState(() {
-                  controller.tries.value ++;
+                  controller.tries.value++;
 
-                  if (widget.jsonData[widget.rendomIndex]['image'] ==
+                  if (widget.jsonData[controller.rendomIndex.value]['image'] ==
                       widget.jsonData1[index]['image']) {
                     controller.score.value += 100;
                     controller.answerUser.value = true;
                     chackAnswer(controller.answerUser.value);
+                    controller.rendomIndex.value = rendomNumber.nextInt(8);
+                    controller.answerUser.value = false;
+
                   } else {
                     chackAnswer(controller.answerUser.value);
                   }
@@ -86,7 +93,7 @@ class _MemGameGrideViewState extends State<MemGameGrideView> {
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: AppColor.blue,
-                  borderRadius: BorderRadius.circular(4),
+                  borderRadius: BorderRadius.circular(8),
                   image: DecorationImage(
                       image: AssetImage(widget.jsonData1[index]['image']),
                       fit: BoxFit.cover),

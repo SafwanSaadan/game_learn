@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, file_names
 
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -30,12 +29,10 @@ class _MemoryGameScreenState extends State<MemoryGameScreen>
   final FloatingController controller1 =
       Get.put(FloatingController(), permanent: true);
   late GifController gifController;
-  // توليد قيم عشوائية للمتغيرات
-  Random rendomNumber = Random();
+
   final MemoryGameModel _game = MemoryGameModel();
   late List<dynamic> _jsonData;
   late List<dynamic> _jsonData1;
-  int rendomIndex = 0;
 
   @override
   void initState() {
@@ -61,63 +58,64 @@ class _MemoryGameScreenState extends State<MemoryGameScreen>
 
   @override
   Widget build(BuildContext context) {
-    if (controller.answerUser.value) {
-      rendomIndex = rendomNumber.nextInt(8);
-      controller.answerUser.value = false;
-    }
-    return Scaffold(
-      backgroundColor: AppColor.blue2,
-      appBar: AppBar(
-        title: Text(
-          'لعبة التذكر',
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(color: AppColor.white),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(bgList[controller1.selectedIndex]),
-            fit: BoxFit.fill,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        backgroundColor: AppColor.blue2,
+        appBar: AppBar(
+          title: Text(
+            'لعبة التذكر',
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge!
+                .copyWith(color: AppColor.white),
           ),
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(
-              flex: 3,
-              child: Gif(
-                controller: gifController,
-                autostart: Autostart.loop,
-                image: AssetImage(_jsonData[rendomIndex]['image']),
-                fit: BoxFit.scaleDown,
-              ),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(bgList[controller1.selectedIndex]),
+              fit: BoxFit.fill,
             ),
-            Obx(() {
-              return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    ScoreBoardMemoryGame(
-                        title: "المحاولة", info: "${controller.tries.value}"),
-                    ScoreBoardMemoryGame(
-                        title: 'الدرجة', info: '${controller.score.value}'),
-                  ]);
-            }),
-            Expanded(
-              flex: 7,
-              child: MemGameGrideView(
-                jsonData: _jsonData,
-                jsonData1: _jsonData1,
-                rendomIndex: rendomIndex,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Obx(() {
+                return Expanded(
+                  flex: 3,
+                  child: Gif(
+                    controller: gifController,
+                    autostart: Autostart.loop,
+                    image: AssetImage(
+                        _jsonData[controller.rendomIndex.value]['image']),
+                    fit: BoxFit.scaleDown,
+                  ),
+                );
+              }),
+              Obx(() {
+                return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ScoreBoardMemoryGame(
+                          title: "المحاولة", info: "${controller.tries.value}"),
+                      ScoreBoardMemoryGame(
+                          title: 'الدرجة', info: '${controller.score.value}'),
+                    ]);
+              }),
+              Expanded(
+                flex: 7,
+                child: MemGameGrideView(
+                  jsonData: _jsonData,
+                  jsonData1: _jsonData1,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
