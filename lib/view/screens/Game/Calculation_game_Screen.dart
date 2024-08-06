@@ -185,11 +185,14 @@ class _CalculationGameScreenState extends State<CalculationGameScreen> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: AppColor.blue,
+        backgroundColor: AppColor.blue2,
         appBar: AppBar(
           title: Text(
             'لعبة الحساب',
-            style: Theme.of(context).textTheme.bodyLarge,
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge!
+                .copyWith(color: AppColor.white),
           ),
           centerTitle: true,
           backgroundColor: Colors.transparent,
