@@ -60,8 +60,8 @@ class _MemGameGrideViewState extends State<MemGameGrideView> {
     widget.jsonData1.shuffle();
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      padding: const EdgeInsets.all(16),
-      margin: const EdgeInsets.only(top: 5, bottom: 5),
+      padding: const EdgeInsets.all(10),
+      margin: const EdgeInsets.only(top: 3, bottom: 5),
       height: screenWidth,
       width: screenWidth,
       child: GridView.builder(
@@ -88,7 +88,7 @@ class _MemGameGrideViewState extends State<MemGameGrideView> {
                 });
               },
               child: Container(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: AppColor.blue,
                   borderRadius: BorderRadius.circular(8),
