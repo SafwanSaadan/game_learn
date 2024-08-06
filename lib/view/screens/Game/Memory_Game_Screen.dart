@@ -52,7 +52,6 @@ class _MemoryGameScreenState extends State<MemoryGameScreen>
     String jsonString = await rootBundle.loadString('assets/data.json');
     _jsonData = json.decode(jsonString);
     _jsonData1 = json.decode(jsonString);
-    _jsonData1.shuffle();
     setState(() {});
   }
 

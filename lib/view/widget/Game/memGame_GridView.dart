@@ -13,9 +13,7 @@ class MemGameGrideView extends StatefulWidget {
   final List<dynamic> jsonData;
   final List<dynamic> jsonData1;
   const MemGameGrideView(
-      {required this.jsonData,
-      required this.jsonData1,
-      super.key});
+      {required this.jsonData, required this.jsonData1, super.key});
 
   @override
   State<MemGameGrideView> createState() => _MemGameGrideViewState();
@@ -27,7 +25,7 @@ class _MemGameGrideViewState extends State<MemGameGrideView> {
 
   // توليد قيم عشوائية للمتغيرات
   Random rendomNumber = Random();
-  
+
   // دالة التحقق من القيم المدخله
   void chackAnswer(bool answer) {
     if (answer) {
@@ -59,6 +57,7 @@ class _MemGameGrideViewState extends State<MemGameGrideView> {
 
   @override
   Widget build(BuildContext context) {
+    widget.jsonData1.shuffle();
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
       padding: const EdgeInsets.all(16),
@@ -83,7 +82,6 @@ class _MemGameGrideViewState extends State<MemGameGrideView> {
                     chackAnswer(controller.answerUser.value);
                     controller.rendomIndex.value = rendomNumber.nextInt(8);
                     controller.answerUser.value = false;
-
                   } else {
                     chackAnswer(controller.answerUser.value);
                   }
