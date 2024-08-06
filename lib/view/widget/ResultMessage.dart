@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, sized_box_for_whitespace
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +54,7 @@ class _ResultMessageState extends State<ResultMessage> {
         onTap: widget.onTap,
         child: Container(
           height: 150,
-          color: AppColor.white,
+          // color: AppColor.white,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
