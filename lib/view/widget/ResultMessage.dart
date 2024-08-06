@@ -4,7 +4,6 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
-import '../../core/constant/AppColor.dart';
 import '../../core/constant/path/Audio_Path.dart';
 
 class ResultMessage extends StatefulWidget {
@@ -13,7 +12,7 @@ class ResultMessage extends StatefulWidget {
   final IconData icon;
   final Color messageColor;
   final Color iconColor;
-  ResultMessage(
+  const ResultMessage(
       {required this.message,
       required this.onTap,
       required this.icon,
