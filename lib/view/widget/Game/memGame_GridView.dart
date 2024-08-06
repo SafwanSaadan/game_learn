@@ -77,12 +77,13 @@ class _MemGameGrideViewState extends State<MemGameGrideView> {
 
                   if (widget.jsonData[controller.rendomIndex.value]['image'] ==
                       widget.jsonData1[index]['image']) {
-                    controller.score.value += 100;
+                    controller.score.value += 10;
                     controller.answerUser.value = true;
                     chackAnswer(controller.answerUser.value);
                     controller.rendomIndex.value = rendomNumber.nextInt(8);
                     controller.answerUser.value = false;
                   } else {
+                    controller.score.value -= 5;
                     chackAnswer(controller.answerUser.value);
                   }
                 });
