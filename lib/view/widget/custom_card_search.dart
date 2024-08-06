@@ -6,10 +6,8 @@ import 'package:gif/gif.dart';
 import '../../core/constant/AppColor.dart';
 
 class CustomSearchResults extends StatefulWidget {
-  const CustomSearchResults(
-      {required this.searchResults, required this.flutterTts, super.key});
+  const CustomSearchResults({required this.searchResults, super.key});
   final List<dynamic> searchResults;
-  final FlutterTts flutterTts;
 
   @override
   State<CustomSearchResults> createState() => _CustomSearchResultsState();
@@ -18,6 +16,7 @@ class CustomSearchResults extends StatefulWidget {
 class _CustomSearchResultsState extends State<CustomSearchResults>
     with TickerProviderStateMixin {
   late GifController gifController;
+  late FlutterTts _flutterTts;
 
   @override
   void initState() {
@@ -40,8 +39,8 @@ class _CustomSearchResultsState extends State<CustomSearchResults>
             var result = widget.searchResults[index];
             return InkWell(
               onTap: () {
-                widget.flutterTts.setLanguage('AR');
-                widget.flutterTts.speak(result['title']);
+                _flutterTts.setLanguage('AR');
+                _flutterTts.speak(result['title']);
               },
               child: Card(
                 elevation: 0.2,
@@ -77,8 +76,8 @@ class _CustomSearchResultsState extends State<CustomSearchResults>
                           child: IconButton(
                             icon: const Icon(Icons.play_arrow),
                             onPressed: () {
-                              widget.flutterTts.setLanguage('AR');
-                              widget.flutterTts.speak(result['title']);
+                              _flutterTts.setLanguage('AR');
+                              _flutterTts.speak(result['title']);
                             },
                           ),
                         ),

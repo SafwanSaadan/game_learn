@@ -115,8 +115,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                       ),
                     ),
-                    CustomSearchResults(
-                        searchResults: _searchResults, flutterTts: _flutterTts),
+                    CustomSearchResults(searchResults: _searchResults),
                   ],
                 ),
         ),

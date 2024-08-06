@@ -7,6 +7,7 @@ class AppRoutes {
   static const String search = '/searchScreen';
   static const String dragDropGame = '/dragDropGame';
   static const String calcGame = '/calcGame';
+  static const String memoryGame = '/memoryGame';
   static const String letters = '/letters';
   static const String numbers = '/numbers';
   static const String colors = '/colors';

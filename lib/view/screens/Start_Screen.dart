@@ -35,7 +35,9 @@ class StartScreen extends StatelessWidget {
                         ? Get.toNamed(AppRoutes.search)
                         : i == 1
                             ? Get.toNamed(AppRoutes.dragDropGame)
-                            : Get.toNamed(AppRoutes.calcGame);
+                            : i == 2
+                            ? Get.toNamed(AppRoutes.calcGame)
+                            : Get.toNamed(AppRoutes.memoryGame);
                   },
                   child: Container(
                     margin: const EdgeInsets.all(Constants.margin),
