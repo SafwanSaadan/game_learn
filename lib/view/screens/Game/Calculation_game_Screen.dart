@@ -112,7 +112,7 @@ class _CalculationGameScreenState extends State<CalculationGameScreen> {
             return ResultMessage(
               message: "إجابة خاطئة",
               messageColor: AppColor.red,
-              icon: Icons.close ,
+              icon: Icons.close,
               iconColor: AppColor.red,
               onTap: goToBackQutsion,
             );
@@ -185,6 +185,7 @@ class _CalculationGameScreenState extends State<CalculationGameScreen> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        backgroundColor: AppColor.blue,
         appBar: AppBar(
           title: Text(
             'لعبة الحساب',
