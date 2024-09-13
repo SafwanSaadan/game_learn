@@ -1,7 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:game_learn/core/constant/AppColor.dart';
+
+import '../../../core/constant/AppColor.dart';
 
 class ScoreBoardMemoryGame extends StatelessWidget {
   final String title;

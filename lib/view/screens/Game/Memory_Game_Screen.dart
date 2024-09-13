@@ -4,14 +4,14 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:game_learn/core/constant/AppColor.dart';
-import 'package:game_learn/data/model/MemoryGame_model.dart';
 import 'package:get/get.dart';
 import 'package:gif/gif.dart';
 
 import '../../../controller/FloatingController.dart';
 import '../../../controller/MemoryGameController.dart';
+import '../../../core/constant/AppColor.dart';
 import '../../../data/datasource/bg_data.dart';
+import '../../../data/model/MemoryGame_model.dart';
 import '../../widget/Game/ScoreBoard_MGame.dart';
 import '../../widget/Game/memGame_GridView.dart';
 

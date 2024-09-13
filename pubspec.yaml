@@ -1,5 +1,5 @@
-name: game_learn
-description: "A new Flutter project."
+name: YemenEduSign
+description: "Mobile Application to learn Yemen Sign language."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -74,8 +74,6 @@ flutter:
     - assets/audio/
     - assets/images/
     - assets/images/animals/
-    - assets/images/letters/
-    - assets/images/numbers/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

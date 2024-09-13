@@ -41,7 +41,7 @@ class _CustomSearchResultsState extends State<CustomSearchResults>
             return InkWell(
               onTap: () {
                 _flutterTts.setLanguage('AR');
-                _flutterTts.speak(result['title']);
+                _flutterTts.speak(result['word_voice']);
               },
               child: Card(
                 elevation: 0.2,
@@ -59,7 +59,7 @@ class _CustomSearchResultsState extends State<CustomSearchResults>
                           child: Gif(
                             controller: gifController,
                             autostart: Autostart.loop,
-                            image: AssetImage(result['imageSign']),
+                            image: AssetImage(result['image_animated']),
                             fit: BoxFit.scaleDown,
                           ),
                         ),
@@ -68,8 +68,8 @@ class _CustomSearchResultsState extends State<CustomSearchResults>
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Image.asset(result['image']),
-                                Text(result['title']),
+                                Image.asset(result['image_static']),
+                                Text(result['word_name']),
                               ]),
                         ),
                         Expanded(
@@ -78,7 +78,7 @@ class _CustomSearchResultsState extends State<CustomSearchResults>
                             icon: const Icon(Icons.play_arrow),
                             onPressed: () {
                               _flutterTts.setLanguage('AR');
-                              _flutterTts.speak(result['title']);
+                              _flutterTts.speak(result['word_voice']);
                             },
                           ),
                         ),

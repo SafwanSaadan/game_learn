@@ -1,8 +1,9 @@
 // ignore_for_file: non_constant_identifier_names, file_names
 
 import 'package:flutter/material.dart';
-import 'package:game_learn/core/constant/AppColor.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'AppColor.dart';
 
 ThemeData AppThemeData() => ThemeData(
       textTheme: TextTheme(

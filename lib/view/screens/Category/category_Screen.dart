@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:game_learn/data/datasource/static/category_list.dart';
 
+import '../../../data/datasource/static/category_list.dart';
 import '../../widget/category_card.dart';
 
 class CategoryScreen extends StatelessWidget {

@@ -1,11 +1,10 @@
-import 'package:game_learn/data/datasource/static/animals_list.dart';
-import 'package:game_learn/data/datasource/static/colors_list.dart';
-import 'package:game_learn/data/datasource/static/letters_list.dart';
-
 import '../../../core/constant/AppColor.dart';
 import '../../../core/constant/AppRoutes.dart';
 import '../../../core/constant/path/images_Path.dart';
 import '../../model/category_model.dart';
+import 'animals_list.dart';
+import 'colors_list.dart';
+import 'letters_list.dart';
 import 'numbers_List .dart';
 
 const List<CategoryModel> categoryList = [
