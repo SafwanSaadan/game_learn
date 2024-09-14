@@ -1,22 +1,28 @@
-import 'package:flutter/material.dart';
+import 'LessonModel.dart';
 
 class CategoryModel {
-  final String name;
+  final int categoryId;
+  final String categoryName;
   final String image;
-  final List<CategoryModel>? list;
-  final String? imageSign;
-  final String? description;
-  final String? audio;
-  final Color? color;
-  final String? rout;
+  final List<LessonModel> lessons;
 
-  const CategoryModel(
-      {required this.name,
-      required this.image,
-      this.list,
-      this.imageSign,
-      this.description,
-      this.audio,
-      this.color,
-      this.rout});
+  CategoryModel({
+    required this.categoryId,
+    required this.categoryName,
+    required this.image,
+    required this.lessons,
+  });
+
+  factory CategoryModel.fromJson(Map<String, dynamic> json) {
+    return CategoryModel(
+      categoryId: json['category_id'] ?? 0,
+      categoryName: json['category_name'] ?? '',
+      image: json['image'] ?? '',
+      lessons: json['lessons'] != null
+          ? (json['lessons'] as List)
+              .map((lesson) => LessonModel.fromJson(lesson))
+              .toList()
+          : [], // افتراض قائمة فارغة إذا كانت `null`
+    );
+  }
 }

@@ -14,7 +14,7 @@ class OnBoardingMiddleware implements GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     if (sharedPref!.getString("id") != null) {
-      return const RouteSettings(name: AppRoutes.login);
+      return const RouteSettings(name: AppRoutes.categories);
     }
     return null;
   }

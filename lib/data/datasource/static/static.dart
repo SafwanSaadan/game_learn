@@ -4,10 +4,6 @@ import '../../../core/constant/ConstText.dart';
 
 List<HomeModel> homeModel = [
   HomeModel(
-      title: ConstText.homeModelTitle1,
-      body: ConstText.homeModelBody1,
-      image: ImagesPath.dog),
-  HomeModel(
       title: ConstText.homeModelTitle2,
       body: ConstText.homeModelBody2,
       image: ImagesPath.cat),

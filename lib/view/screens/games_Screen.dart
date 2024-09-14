@@ -8,8 +8,8 @@ import '../../core/constant/constants.dart';
 import '../../data/datasource/bg_data.dart';
 import '../../data/datasource/static/static.dart';
 
-class StartScreen extends StatelessWidget {
-  StartScreen({super.key});
+class GamesScreen extends StatelessWidget {
+  GamesScreen({super.key});
 
   final FloatingController controller =
       Get.put(FloatingController(), permanent: true);
@@ -32,10 +32,8 @@ class StartScreen extends StatelessWidget {
                 return InkWell(
                   onTap: () {
                     i == 0
-                        ? Get.toNamed(AppRoutes.search)
+                        ? Get.toNamed(AppRoutes.dragDropGame)
                         : i == 1
-                            ? Get.toNamed(AppRoutes.dragDropGame)
-                            : i == 2
                             ? Get.toNamed(AppRoutes.calcGame)
                             : Get.toNamed(AppRoutes.memoryGame);
                   },
@@ -52,7 +50,7 @@ class StartScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Icon(Icons.mobile_friendly,
+                            const Icon(Icons.sports_esports,
                                 color: AppColor.blue),
                             Text(
                               homeModel[i].title!,

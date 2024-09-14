@@ -18,7 +18,7 @@ class CategoryItem extends StatelessWidget {
       onTap: () {
         // Navigator.pushNamed(context, AppRoutes.updateProductPage,
         //     arguments: product);
-        Get.toNamed(AppRoutes.numbers, arguments: category);
+        // Get.toNamed(AppRoutes.numbers, arguments: category);
       },
       child: Padding(
         padding: const EdgeInsets.only(top: 30.0),
@@ -35,7 +35,7 @@ class CategoryItem extends StatelessWidget {
                       bottomRight: Radius.circular(10),
                       topLeft: Radius.circular(50),
                       topRight: Radius.circular(50)),
-                  color: category.color,
+                  // color: category.color,
                   image: DecorationImage(
                       image: NetworkImage(category.image),
                       fit: BoxFit.scaleDown),
@@ -57,7 +57,7 @@ class CategoryItem extends StatelessWidget {
                 ),
                 child: Text(
                   // category.name.substring(0, 12),
-                  category.name,
+                  category.categoryName,
                   style: const TextStyle(
                     fontSize: 14,
                     color: AppColor.green,

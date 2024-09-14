@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/constant/AppThemeData.dart';
 import 'routes.dart';
-import 'view/screens/Search_Screen.dart';
+import 'view/BottomNavigationBar.dart';
 
 late final SharedPreferences? sharedPref;
 
@@ -27,12 +27,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: const SearchScreen(),
-        // initialRoute: AppRoutes.onBoarding,
-        theme: AppThemeData(),
-        getPages: getPages,
+      child: SafeArea(
+        child: GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: const BottomNavigationBarApp(),
+          // initialRoute: AppRoutes.onBoarding,
+          theme: AppThemeData(),
+          getPages: getPages,
+        ),
       ),
     );
   }

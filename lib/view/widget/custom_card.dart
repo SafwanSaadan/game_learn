@@ -21,7 +21,7 @@ class _CustomCardState extends State<CustomCard> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        player.play(AssetSource(widget.category.audio!));
+        // player.play(AssetSource(widget.category.audio!));
         // Get.toNamed(AppRoutes.updatecategoryPage, arguments: category);
       },
       child: Padding(
@@ -51,29 +51,30 @@ class _CustomCardState extends State<CustomCard> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        widget.category.name,
+                        widget.category.categoryName,
                         style: const TextStyle(
                           fontSize: 14,
                           color: AppColor.grey,
                         ),
                         maxLines: 1,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            widget.category.description!,
-                            style: const TextStyle(
-                              fontSize: 15,
-                              color: AppColor.green,
-                            ),
-                          ),
-                          const Icon(
-                            Icons.favorite,
-                            color: AppColor.red,
-                          ),
-                        ],
-                      ),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //   children: [
+                      //     Text(
+                      //       widget.category,
+                      //       style: const TextStyle(
+                      //         fontSize: 15,
+                      //         color: AppColor.green,
+                      //       ),
+                      //     ),
+                      //     const Icon(
+                      //       Icons.favorite,
+                      //       color: AppColor.red,
+                      //     ),
+                      //   ],
+                      // ),
+                    
                     ],
                   ),
                 ),

@@ -182,95 +182,91 @@ class _CalculationGameScreenState extends State<CalculationGameScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        backgroundColor: AppColor.blue2,
-        appBar: AppBar(
-          title: Text(
-            'لعبة الحساب',
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge!
-                .copyWith(color: AppColor.white),
-          ),
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
+    return Scaffold(
+      backgroundColor: AppColor.blue2,
+      appBar: AppBar(
+        title: Text(
+          'لعبة الحساب',
+          style: Theme.of(context)
+              .textTheme
+              .bodyLarge!
+              .copyWith(color: AppColor.white),
         ),
-        body: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(bgList[controller1.selectedIndex]),
-              fit: BoxFit.fill,
-            ),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(bgList[controller1.selectedIndex]),
+            fit: BoxFit.fill,
           ),
-          child: Column(children: [
-            // level progrss, player needs 5 correct Answer
-            // Container(
-            //   height: 160,
-            //   color: AppColor.orange,
-            // ),
+        ),
+        child: Column(children: [
+          // level progrss, player needs 5 correct Answer
+          // Container(
+          //   height: 160,
+          //   color: AppColor.orange,
+          // ),
 
-            // Question
-            Expanded(
-              flex: 3,
-              child: Container(
-                child: Center(
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        // Question
-                        Center(
-                          child: Text(
-                            '$numberA ${opretor[controller.opretorIndex.value]} $numberB = ',
-                            style: const TextStyle(
-                                fontSize: 40, color: AppColor.white),
-                          ),
-                        ),
+          // Question
+          Expanded(
+            flex: 3,
+            child: Container(
+              child: Center(
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  // Question
+                  Center(
+                    child: Text(
+                      '$numberA ${opretor[controller.opretorIndex.value]} $numberB = ',
+                      style:
+                          const TextStyle(fontSize: 40, color: AppColor.white),
+                    ),
+                  ),
 
-                        // Answer Box
-                        Container(
-                          height: 60,
-                          width: 120,
-                          decoration: BoxDecoration(
-                            color: AppColor.blue,
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: Center(
-                            child: Text(
-                              controller.userAnswer.value,
-                              style: const TextStyle(
-                                  fontSize: 40, color: AppColor.white),
-                            ),
-                          ),
-                        ),
-                      ]),
-                ),
+                  // Answer Box
+                  Container(
+                    height: 60,
+                    width: 120,
+                    decoration: BoxDecoration(
+                      color: AppColor.blue,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Center(
+                      child: Text(
+                        controller.userAnswer.value,
+                        style: const TextStyle(
+                            fontSize: 40, color: AppColor.white),
+                      ),
+                    ),
+                  ),
+                ]),
               ),
             ),
+          ),
 
-            // number pad
-            Expanded(
-                flex: 11,
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: GridView.builder(
-                      itemCount: numberPad.length,
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 4),
-                      itemBuilder: (context, index) {
-                        return ButtonCalculationGame(
-                          child: numberPad[index],
-                          onTap: () {
-                            buttonTapped(numberPad[index]);
-                          },
-                        );
-                      }),
-                )),
-          ]),
-        ),
+          // number pad
+          Expanded(
+              flex: 11,
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: GridView.builder(
+                    itemCount: numberPad.length,
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 4),
+                    itemBuilder: (context, index) {
+                      return ButtonCalculationGame(
+                        child: numberPad[index],
+                        onTap: () {
+                          buttonTapped(numberPad[index]);
+                        },
+                      );
+                    }),
+              )),
+        ]),
       ),
     );
   }

@@ -9,7 +9,7 @@ import '../core/constant/AppThemeData.dart';
 import '../main.dart';
 
 class FloatingController extends GetxController {
-  int selectedIndex = sharedPref!.getInt('selectedIndex') ?? 0;
+  int selectedIndex = sharedPref!.getInt('selectedIndex') ?? 6;
   bool showOption = false;
   bool isPassword = true;
   bool chack = false;

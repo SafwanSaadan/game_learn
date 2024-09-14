@@ -31,7 +31,7 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
 
               if (controller.currentPage >= onBoardingList.length - 1) {
                 if (tab == 0) {
-                  Get.offAllNamed(AppRoutes.login);
+                  // Get.offAllNamed(AppRoutes.login);
                 } else {
                   Get.offAllNamed(AppRoutes.home);
                 }

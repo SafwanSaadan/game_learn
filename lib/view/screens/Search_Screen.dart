@@ -1,4 +1,5 @@
 // ignore_for_file: library_private_types_in_public_api, file_names
+import 'package:YemenEduSign/core/constant/AppColor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:get/get.dart';
@@ -58,50 +59,67 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'صفحة البحث',
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-          centerTitle: true,
-        ),
-        body: Obx(
-          () => Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(bgList[controller1.selectedIndex]),
-                fit: BoxFit.fill,
+      child: SafeArea(
+        child: Scaffold(
+          // appBar: AppBar(
+          //   title: Text(
+          //     'صفحة البحث',
+          //     style: Theme.of(context).textTheme.bodyLarge,
+          //   ),
+          //   centerTitle: true,
+          // ),
+
+          body: Obx(
+            () => Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(bgList[controller1.selectedIndex]),
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            child: searchController.isLoading.value
-                ? const Center(
-                    child:
-                        CircularProgressIndicator()) // Show loading indicator
-                : Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextField(
-                          controller: _searchController,
-                          onChanged: searchController.search,
-                          decoration: InputDecoration(
-                            labelText: 'بحث',
-                            prefixIcon: const Icon(Icons.search),
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                  _isListening ? Icons.mic : Icons.mic_none),
-                              onPressed: _isListening
-                                  ? _stopListening
-                                  : _startListening,
+              child: searchController.isLoading.value
+                  ? const Center(
+                      child:
+                          CircularProgressIndicator()) // Show loading indicator
+                  : Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextField(
+                            controller: _searchController,
+                            onChanged: searchController.search,
+                            decoration: InputDecoration(
+                              fillColor: AppColor.grey.withOpacity(0.5),
+                              filled: true,
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    const BorderSide(color: AppColor.green),
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
+                              labelText: 'بحث',
+                              labelStyle:
+                                  const TextStyle(color: AppColor.white),
+                              prefixIcon: const Icon(Icons.search,
+                                  color: AppColor.white),
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                    _isListening ? Icons.mic : Icons.mic_none,
+                                    color: _isListening
+                                        ? AppColor.green
+                                        : AppColor.white),
+                                onPressed: _isListening
+                                    ? _stopListening
+                                    : _startListening,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      CustomSearchResults(
-                          searchResults: searchController.searchResults.value),
-                    ],
-                  ),
+                        CustomSearchResults(
+                            searchResults:
+                                searchController.searchResults.value),
+                      ],
+                    ),
+            ),
           ),
         ),
       ),
